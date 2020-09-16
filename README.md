@@ -17,11 +17,61 @@ For this walkthrough, you should have the following prerequisites:
 
 ### The suggested sequence of steps is as follows:
 - Create AWS IAM Policies
-- Launch AWS CloudFormation stack
+- Launch AWS CloudFormation stack (from repository)
 - Review created resources.
 
+### Create AWS IAM Policies
 
-### Parameters
+#### EC2 Sample
+````
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "ec2:RunInstances",
+            "Resource": [
+                "arn:aws:ec2:*:*:subnet/",
+                "arn:aws:ec2:*:*:network-interface/*",
+                "arn:aws:ec2:*:*:instance/*",
+                "arn:aws:ec2:*:*:volume/*",
+                "arn:aws:ec2:*::image/ami-*",
+                "arn:aws:ec2:*:*:key-pair/*",
+                "arn:aws:ec2:*:*:security-group/*"
+            ]
+        }
+    ]
+ }
+
+````
+#### EBS Sample
+````
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "ec2:CreateVolume",
+            "Resource": [
+                "arn:aws:ec2:*:*:subnet/",
+                "arn:aws:ec2:*:*:network-interface/*",
+                "arn:aws:ec2:*:*:instance/*",
+                "arn:aws:ec2:*:*:volume/*",
+                "arn:aws:ec2:*::image/ami-*",
+                "arn:aws:ec2:*:*:key-pair/*",
+                "arn:aws:ec2:*:*:security-group/*"
+            ]
+        }
+    ]
+ }
+
+````
+
+### Launch AWS CloudFormation stack
+Create an AWS CloudFormation stack using the outposts-manage-capacity.yaml template that is included in your local clone of the repository. 
+
+
+#### Parameters
 Provide all necessary parameters using the descriptions below:
 | Parameter | Description |
 |-----------|-------------|
@@ -34,6 +84,11 @@ Provide all necessary parameters using the descriptions below:
 | StorageThreshold    |  Capacity threshold to use to generate alarms and restrict creating storage resources.           |
 | OutpostId     |   The Id of your AWS Outpost          |
 
+### Review Resources
+Review the resources created by CloudFormation and validate your work. 
+
+### Validate your work
+To validate your work, assign the IAM policy created for Amazon EC2 and Amazon EBS to the IAM users or IAM roles assigned to your AWS Outposts administrators. Once assigned, use one of these IAM principals to create enough EC2 or EBS resources on your AWS Outpost to breach the thresholds you have established. This will depend on your AWS Outposts configuration and the capacity it is populated with. When capacity is exceeded, your administrators should receive an error similar to the below when attempting to create resources as well as an email notifying of the condition. You can also circumvent this by using the 'Set_Alarm_State' function through the SDK/CLI to modify the state of your target alarms.
 
 ## Security
 
