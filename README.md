@@ -1,4 +1,4 @@
-## My Project
+## Manage AWS Outposts Capacity Using Amazon CloudWatch and AWS Lambda
 
 TODO: Fill this README out!
 
