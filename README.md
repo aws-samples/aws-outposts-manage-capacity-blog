@@ -1,5 +1,8 @@
 ## Manage AWS Outposts Capacity Using Amazon CloudWatch and AWS Lambda
 
+![Image of Solution](https://github.com/aws-samples/aws-outposts-manage-capacity-blog/blob/master/Picture1.png)
+
+
 ### Overview of solution
 We use integrations between services in the AWS Outposts home region with the services deployed on the AWS Outpost to accomplish our goal. AWS Outposts provides available and utilized capacity metrics in Amazon CloudWatch. We do condition monitoring on these metrics based on thresholds that are defined by administrators to generate alarms that create an Amazon CloudWatch Event. For our use case, events trigger fan-out actions to multiple destinations to inform (via Amazon Simple Notification Service) and act (via an AWS Lambda function) on the condition. We act on the event by updating the permissions (policy) associated with administrators in AWS Identity and Access Management (IAM). If our threshold has been exceeded, we remove the capability to create more resources by updating an AWS IAM policy, to reserve that capacity in the event of a failure. Once our threshold normalizes, we return the privilege to the administrators. 
 
