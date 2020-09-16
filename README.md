@@ -6,21 +6,30 @@ We use integrations between services in the AWS Outposts home region with the se
 
 ### Prerequisites
 For this walkthrough, you should have the following prerequisites: 
-An AWS account An AWS Outposts fully configured 
-An AWS IAM Role that you used to assign privileges to your AWS Outposts administrators 
-An AWS Virtual Private Cloud (VPC) subnet associated with your AWS Outposts 
-An S3 bucket in the same AWS region as your AWS Outposts. Please refer to the AWS Region Table for more information. 
+- An AWS account 
+- An AWS Outposts fully configured 
+- An AWS IAM Role that you used to assign privileges to your AWS Outposts administrators 
+- An AWS Virtual Private Cloud (VPC) subnet associated with your AWS Outposts 
+- An S3 bucket in the same AWS region as your AWS Outposts. Please refer to the AWS Region Table for more information. 
+
+### The suggested sequence of steps is as follows:
+- Create AWS IAM Policies
+- Launch AWS CloudFormation stack
+- Review created resources.
+
 
 ### Parameters
 Provide all necessary parameters using the descriptions below:
-AdminIAMPolicyArnEBS	ARN of IAM Policy associated with AWS Outposts administrators and that will be managed by solution
-AdminIAMPolicyArnEBS	ARN of IAM Policy associated with AWS Outposts administrators and that will be managed by solution
-Bucket	              An S3 bucket with the code from the Github repository
-Email	                Email address or mailing list to send capacity notifications to.
-Subnet	              Subnet associated to the AWS Outpost were capacity will be managed
-ComputeThreshold	    Capacity threshold to use to generate alarms and restrict creating compute resources.
-StorageThreshold	    Capacity threshold to use to generate alarms and restrict creating storage resources.
-OutpostId	            The Id of your AWS Outpost
+| Parameter | Description |
+|-----------|-------------|
+| AdminIAMPolicyArnEBS       |  ARN of EC2 IAM Policy associated with AWS Outposts administrators and that will be managed by solution           |
+| AdminIAMPolicyArnEC2        | ARN of EBS IAM Policy associated with AWS Outposts administrators and that will be managed by solution            |
+| Bucket       | An S3 bucket with the code from the Github repository            |
+| Email       |  Email address or mailing list to send capacity notifications to.           |
+| Subnet    |   Subnet associated to the AWS Outpost were capacity will be managed          |
+| ComputeThreshold     |  Capacity threshold to use to generate alarms and restrict creating compute resources.           |
+| StorageThreshold    |  Capacity threshold to use to generate alarms and restrict creating storage resources.           |
+| OutpostId     |   The Id of your AWS Outpost          |
 
 
 ## Security
