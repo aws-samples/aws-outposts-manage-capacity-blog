@@ -1,6 +1,6 @@
 ## Manage AWS Outposts Capacity Using Amazon CloudWatch and AWS Lambda
 
-![Image of Solution](https://github.com/aws-samples/aws-outposts-manage-capacity-blog/blob/master/Picture1.png)
+![Image of Solution](https://github.com/aws-samples/aws-outposts-manage-capacity-blog/blob/master/SolutionDiagram.png)
 
 
 ### Overview of solution
