@@ -22,28 +22,24 @@ Parameters:
   Subnet:
     Description: Subnet associated to the AWS Outpost were capacity will be managed
     Type: String
-    Default: subnet-0e2f07abd1d2f4556
   Bucket:
     Description: Code from GitHub repository
     Type: String
-    Default: castca-op-capacity-code
+    Default: change-me
   AdminIAMPolicyArnEC2:
     Type: String
     Description: ARN of IAM Policy associated with AWS Outposts administrators and that will be managed by solution
-    Default: arn:aws:iam::322625939534:policy/outposts-ec2-capacity
   AdminIAMPolicyArnEBS:
     Type: String
     Description: ARN of IAM Policy associated with AWS Outposts administrators and that will be managed by solution
-    Default: arn:aws:iam::322625939534:policy/outposts-ebs-capacity
   OutpostId:
     Type: String
     Description: Outpost Id for your Outpost
-    Default: op-0c74f70820f79907c
 Resources:
   #Alarms
-  outpostsec2capacitybreachedm5dl: 
+  outpostsec2capacitybreachedm5dl:
     Type: AWS::CloudWatch::Alarm
-    Properties: 
+    Properties:
       AlarmDescription: EC2 Capacity has been breached for instance type m5.dl
       AlarmName: outposts-ec2-capacity-alarm-m5d.large
       ComparisonOperator: GreaterThanOrEqualToThreshold
@@ -55,13 +51,13 @@ Resources:
       Threshold: !Ref ComputeThreshold
       TreatMissingData: notBreaching
       Dimensions:
-      - Name: InstanceType
-        Value: m5d.large
-      - Name: OutpostId
-        Value: !Ref OutpostId
-  outpostsec2capacitybreachedc5d9xl: 
+        - Name: InstanceType
+          Value: m5d.large
+        - Name: OutpostId
+          Value: !Ref OutpostId
+  outpostsec2capacitybreachedc5d9xl:
     Type: AWS::CloudWatch::Alarm
-    Properties: 
+    Properties:
       AlarmDescription: EC2 Capacity has been breached for instance type r5.24xl
       AlarmName: outposts-ec2-capacity-alarm-c5d.9xlarge
       ComparisonOperator: GreaterThanOrEqualToThreshold
@@ -73,13 +69,13 @@ Resources:
       Threshold: !Ref ComputeThreshold
       TreatMissingData: notBreaching
       Dimensions:
-      - Name: InstanceType
-        Value: c5d.9xlarge
-      - Name: OutpostId
-        Value: !Ref OutpostId
-  outpostsec2capacitybreachedc524xl: 
+        - Name: InstanceType
+          Value: c5d.9xlarge
+        - Name: OutpostId
+          Value: !Ref OutpostId
+  outpostsec2capacitybreachedc524xl:
     Type: AWS::CloudWatch::Alarm
-    Properties: 
+    Properties:
       AlarmDescription: EC2 Capacity has been breached for instance type c5.24xl
       AlarmName: outposts-ec2-capacity-alarm-c5.24xlarge
       ComparisonOperator: GreaterThanOrEqualToThreshold
@@ -91,13 +87,13 @@ Resources:
       Threshold: !Ref ComputeThreshold
       TreatMissingData: notBreaching
       Dimensions:
-      - Name: InstanceType
-        Value: c5.24xlarge
-      - Name: OutpostId
-        Value: !Ref OutpostId
-  outpostsec2capacitybreachedg4dn: 
+        - Name: InstanceType
+          Value: c5.24xlarge
+        - Name: OutpostId
+          Value: !Ref OutpostId
+  outpostsec2capacitybreachedg4dn:
     Type: AWS::CloudWatch::Alarm
-    Properties: 
+    Properties:
       AlarmDescription: EC2 Capacity has been breached for instance type g4dn.2xlarge
       AlarmName: outposts-ec2-capacity-alarm-g4dn.2xlarge
       ComparisonOperator: GreaterThanOrEqualToThreshold
@@ -109,13 +105,13 @@ Resources:
       Threshold: !Ref ComputeThreshold
       TreatMissingData: notBreaching
       Dimensions:
-      - Name: InstanceType
-        Value: g4dn.2xlarge
-      - Name: OutpostId
-        Value: !Ref OutpostId
-  outpostsec2capacitybreachedr5dl: 
+        - Name: InstanceType
+          Value: g4dn.2xlarge
+        - Name: OutpostId
+          Value: !Ref OutpostId
+  outpostsec2capacitybreachedr5dl:
     Type: AWS::CloudWatch::Alarm
-    Properties: 
+    Properties:
       AlarmDescription: EC2 Capacity has been breached for instance type r5.dl
       AlarmName: outposts-ec2-capacity-alarm-r5d.large
       ComparisonOperator: GreaterThanOrEqualToThreshold
@@ -127,13 +123,13 @@ Resources:
       Threshold: !Ref ComputeThreshold
       TreatMissingData: notBreaching
       Dimensions:
-      - Name: InstanceType
-        Value: r5d.large
-      - Name: OutpostId
-        Value: !Ref OutpostId
-  outpostsec2capacitybreachedr524xl: 
+        - Name: InstanceType
+          Value: r5d.large
+        - Name: OutpostId
+          Value: !Ref OutpostId
+  outpostsec2capacitybreachedr524xl:
     Type: AWS::CloudWatch::Alarm
-    Properties: 
+    Properties:
       AlarmDescription: EC2 Capacity has been breached for instance type r5.24xl
       AlarmName: outposts-ec2-capacity-alarm-r5.24xlarge
       ComparisonOperator: GreaterThanOrEqualToThreshold
@@ -145,13 +141,13 @@ Resources:
       Threshold: !Ref ComputeThreshold
       TreatMissingData: notBreaching
       Dimensions:
-      - Name: InstanceType
-        Value: r5.24xlarge
-      - Name: OutpostId
-        Value: !Ref OutpostId
-  outpostsec2capacitybreachedi3en: 
+        - Name: InstanceType
+          Value: r5.24xlarge
+        - Name: OutpostId
+          Value: !Ref OutpostId
+  outpostsec2capacitybreachedi3en:
     Type: AWS::CloudWatch::Alarm
-    Properties: 
+    Properties:
       AlarmDescription: EC2 Capacity has been breached for instance type i3en.metal
       AlarmName: outposts-ec2-capacity-alarm-i3en.metal
       ComparisonOperator: GreaterThanOrEqualToThreshold
@@ -163,13 +159,13 @@ Resources:
       Threshold: !Ref ComputeThreshold
       TreatMissingData: notBreaching
       Dimensions:
-      - Name: InstanceType
-        Value: i3en.metal
-      - Name: OutpostId
-        Value: !Ref OutpostId
-  outpostsebscapacitybreached: 
+        - Name: InstanceType
+          Value: i3en.metal
+        - Name: OutpostId
+          Value: !Ref OutpostId
+  outpostsebscapacitybreached:
     Type: AWS::CloudWatch::Alarm
-    Properties: 
+    Properties:
       AlarmDescription: EBS Capacity has been breached for volume type gp2
       AlarmName: outposts-ebs-capacity-alarm-breach
       ComparisonOperator: GreaterThanOrEqualToThreshold
@@ -181,55 +177,53 @@ Resources:
       Threshold: !Ref StorageThreshold
       TreatMissingData: notBreaching
       Dimensions:
-      - Name: VolumeType
-        Value: gp2
-      - Name: OutpostId
-        Value: !Ref OutpostId
+        - Name: VolumeType
+          Value: gp2
+        - Name: OutpostId
+          Value: !Ref OutpostId
   #CloudWatch Custom Rule
   OutpostsEC2CapacityRule:
     Type: AWS::Events::Rule
-    Properties: 
+    Properties:
       Description: The custom rule that will notify the lambda when an EC2 alarm changes state
-      EventPattern: 
+      EventPattern:
         source:
           - "aws.cloudwatch"
         detail-type:
           - "CloudWatch Alarm State Change"
         resources:
           - Fn::GetAtt:
-            - "outpostsec2capacitybreachedm5dl"
-            - "Arn"
+              - "outpostsec2capacitybreachedm5dl"
+              - "Arn"
           - Fn::GetAtt:
-            - "outpostsec2capacitybreachedc5d9xl"
-            - "Arn"
+              - "outpostsec2capacitybreachedc5d9xl"
+              - "Arn"
           - Fn::GetAtt:
-            - "outpostsec2capacitybreachedc524xl"
-            - "Arn"
+              - "outpostsec2capacitybreachedc524xl"
+              - "Arn"
           - Fn::GetAtt:
-            - "outpostsec2capacitybreachedg4dn"
-            - "Arn"
+              - "outpostsec2capacitybreachedg4dn"
+              - "Arn"
           - Fn::GetAtt:
-            - "outpostsec2capacitybreachedr5dl"
-            - "Arn"
+              - "outpostsec2capacitybreachedr5dl"
+              - "Arn"
           - Fn::GetAtt:
-            - "outpostsec2capacitybreachedr524xl"
-            - "Arn"
+              - "outpostsec2capacitybreachedr524xl"
+              - "Arn"
           - Fn::GetAtt:
-            - "outpostsec2capacitybreachedi3en"
-            - "Arn"
+              - "outpostsec2capacitybreachedi3en"
+              - "Arn"
       Name: OutpostsEC2CapacityRule
       State: ENABLED
-      Targets: 
-        - 
-          Arn: 
-            Fn::GetAtt: 
+      Targets:
+        - Arn:
+            Fn::GetAtt:
               - "outpostsec2capacitylambda"
               - "Arn"
           Id: OutpostsLambdaTargetEC2
-        - 
-          Arn: !Ref SNSTopic
+        - Arn: !Ref SNSTopic
           Id: EmailNotifEc2Alarm
-          InputTransformer: 
+          InputTransformer:
             InputPathsMap:
               alarm: "$.detail.alarmName"
               status: "$.detail.state.value"
@@ -237,30 +231,28 @@ Resources:
               "The alarm <alarm> has entered state <status>"
   OutpostsEBSCapacityRule:
     Type: AWS::Events::Rule
-    Properties: 
+    Properties:
       Description: The custom rule that will notify the lambda when an EBSalarm changes state
-      EventPattern: 
+      EventPattern:
         source:
           - "aws.cloudwatch"
         detail-type:
           - "CloudWatch Alarm State Change"
         resources:
           - Fn::GetAtt:
-            - "outpostsebscapacitybreached"
-            - "Arn"
+              - "outpostsebscapacitybreached"
+              - "Arn"
       Name: OutpostsEBSCapacityRule
       State: ENABLED
-      Targets: 
-        - 
-          Arn: 
-            Fn::GetAtt: 
+      Targets:
+        - Arn:
+            Fn::GetAtt:
               - "outpostsebscapacitylambda"
               - "Arn"
           Id: OutpostsLambdaTargetEBS
-        - 
-          Arn: !Ref SNSTopic
+        - Arn: !Ref SNSTopic
           Id: EmailNotifEBSAlarm
-          InputTransformer: 
+          InputTransformer:
             InputPathsMap:
               alarm: "$.detail.alarmName"
               status: "$.detail.state.value"
@@ -275,7 +267,7 @@ Resources:
           Protocol: email
       TopicName: "outposts-ec2-capacity-alarm"
   SnsTopicPolicy:
-    Type: 'AWS::SNS::TopicPolicy'
+    Type: "AWS::SNS::TopicPolicy"
     Properties:
       PolicyDocument:
         Statement:
@@ -283,7 +275,7 @@ Resources:
             Effect: Allow
             Principal:
               Service: events.amazonaws.com
-            Action: 'sns:Publish'
+            Action: "sns:Publish"
             Resource:
               Ref: SNSTopic
       Topics:
@@ -308,11 +300,11 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                  - 'iam:GetPolicyVersion'
-                  - 'iam:GetPolicy'
-                  - 'iam:CreatePolicyVersion'
-                  - 'iam:DeletePolicyVersion'
-                  - 'iam:SetDefaultPolicyVersion'
+                  - "iam:GetPolicyVersion"
+                  - "iam:GetPolicy"
+                  - "iam:CreatePolicyVersion"
+                  - "iam:DeletePolicyVersion"
+                  - "iam:SetDefaultPolicyVersion"
                 Resource: !Ref AdminIAMPolicyArnEC2
   EBSCapacityRole:
     Type: AWS::IAM::Role
@@ -333,49 +325,49 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                  - 'iam:GetPolicyVersion'
-                  - 'iam:GetPolicy'
-                  - 'iam:CreatePolicyVersion'
-                  - 'iam:DeletePolicyVersion'
-                  - 'iam:SetDefaultPolicyVersion'
+                  - "iam:GetPolicyVersion"
+                  - "iam:GetPolicy"
+                  - "iam:CreatePolicyVersion"
+                  - "iam:DeletePolicyVersion"
+                  - "iam:SetDefaultPolicyVersion"
                 Resource: !Ref AdminIAMPolicyArnEBS
-# Invoke permissions for the Cloudwatch Rules
-  PermissionForEventsToInvokeLambda: 
+  # Invoke permissions for the Cloudwatch Rules
+  PermissionForEventsToInvokeLambda:
     Type: AWS::Lambda::Permission
-    Properties: 
-      FunctionName: 
+    Properties:
+      FunctionName:
         Ref: "outpostsec2capacitylambda"
       Action: "lambda:InvokeFunction"
       Principal: "events.amazonaws.com"
-      SourceArn: 
-        Fn::GetAtt: 
+      SourceArn:
+        Fn::GetAtt:
           - "OutpostsEC2CapacityRule"
           - "Arn"
   EBSInvokePermission:
     Type: AWS::Lambda::Permission
-    Properties: 
-      FunctionName: 
+    Properties:
+      FunctionName:
         Ref: "outpostsebscapacitylambda"
       Action: "lambda:InvokeFunction"
       Principal: "events.amazonaws.com"
-      SourceArn: 
-        Fn::GetAtt: 
+      SourceArn:
+        Fn::GetAtt:
           - "OutpostsEBSCapacityRule"
           - "Arn"
   #Lambda Functions
   outpostsec2capacitylambda:
-    Type: 'AWS::Lambda::Function'
+    Type: "AWS::Lambda::Function"
     Properties:
       FunctionName: OutpostEC2CapacityLambda
       Handler: outpost-capacity-lambda-ec2.lambda_handler
       Runtime: python3.8
-      Code: 
+      Code:
         S3Bucket: !Ref Bucket
-        S3Key: 'outpost-capacity-lambda-ec2.zip'
-      Description: ''
+        S3Key: "outpost-capacity-lambda-ec2.zip"
+      Description: ""
       MemorySize: 128
       Timeout: 10
-      Role: 
+      Role:
         Fn::GetAtt:
           - EC2CapacityRole
           - Arn
@@ -386,18 +378,18 @@ Resources:
           policy_name: outposts-ec2-capacity
           subnet_id: !Ref Subnet
   outpostsebscapacitylambda:
-    Type: 'AWS::Lambda::Function'
+    Type: "AWS::Lambda::Function"
     Properties:
       FunctionName: OutpostEBSCapacityLambda
       Handler: outpost-capacity-lambda-ebs.lambda_handler
       Runtime: python3.8
-      Code: 
+      Code:
         S3Bucket: !Ref Bucket
-        S3Key: 'outpost-capacity-lambda-ebs.zip'
-      Description: ''
+        S3Key: "outpost-capacity-lambda-ebs.zip"
+      Description: ""
       MemorySize: 128
       Timeout: 10
-      Role: 
+      Role:
         Fn::GetAtt:
           - EBSCapacityRole
           - Arn
@@ -423,4 +415,3 @@ Resources:
       Roles:
         - Ref: EBSCapacityRole
         - Ref: EC2CapacityRole
-
